@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #36704F, #4C956C);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  background-color: #F1EFE7;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 80vw; /* 80% del ancho del viewport */
+  max-width: 800px; /* Limitar el ancho máximo */
+  display: flex;
+  flex-direction: column; /* Asegura que el input esté arriba y el texto traducido abajo */
+  align-items: center; /* Centrar los elementos horizontalmente */
+  justify-content: center; /* Centrar los elementos verticalmente */
 }
+
+.input-box {
+  padding: 15px;
+  width: 80%; /* 80% del ancho del contenedor .card */
+  max-width: 600px; /* Limitar el ancho máximo */
+  margin-bottom: 20px; /* Espacio debajo del input */
+  border: none;
+  border-bottom: 3px solid #4C956C;
+  font-size: 20px;
+  color: #36704F;
+  background-color: transparent;
+  outline: none;
+  transition: border-bottom 0.3s;
+}
+
+.input-box::placeholder {
+  color: #4C956C;
+}
+
+.input-box:focus {
+  border-bottom-color: #36704F;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Asegura que el input esté arriba y el texto traducido abajo */
+  align-items: center; /* Centrar los elementos horizontalmente */
+  justify-content: center; /* Centrar los elementos verticalmente */
+}
+
+.translated-text {
+  font-size: 24px;
+  color: #36704F;
+  background-color: #4C956C;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  width: 80%; /* 80% del ancho del contenedor .card */
+  max-width: 600px; /* Limitar el ancho máximo */
+  min-height: 24px; /* Altura mínima de 24px */
+  line-height: 24px; /* Alineación vertical del texto */
+  overflow-wrap: break-word; /* Permitir que el texto largo se ajuste */
+  word-wrap: break-word; /* Compatibilidad con navegadores antiguos */
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.translated-text:hover {
+  transform: scale(1.05);
+}
+
+
+
+

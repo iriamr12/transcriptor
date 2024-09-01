@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [inputText, setInputText] = useState('');
+  const [translatedText, setTranslatedText] = useState('');
+
+  const translator = (text) => {
+    return text
+      .toLowerCase()
+      .split('')
+      .map(char => {
+        const code = char.charCodeAt(0);
+        if (code >= 97 && code <= 122) {
+          return code - 96;
+        }
+        return ''; 
+      })
+      .filter(char => char !== '')
+      .join(' ');
+  }
+
+  const handleInputChange = (event) => {
+    const text = event.target.value;
+    setInputText(text);
+    setTranslatedText(translator(text));
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      <div className="container">
+        <input 
+          type="text" 
+          value={inputText} 
+          onChange={handleInputChange} 
+          placeholder="Type your message here"
+          className="input-box"
+        />
+        <p className="translated-text">
+        <span>{translatedText}</span>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
